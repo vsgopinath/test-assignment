@@ -27,8 +27,12 @@ PSPS. Please use mobile native tools. (Tests written on Java are accepted too)
 
 # Overview
 
- * UI or Instrumentation tests are written using [Kaspresso](https://github.com/KasperskyLab/Kaspresso) library
+ * 3 UI or Instrumentation tests are written using [Kaspresso](https://github.com/KasperskyLab/Kaspresso) library
  * Configured detekt reports in CI/CD
  * Configured UI Tests report in CI/CD
+
+# Reports
+
+* [Sample Test Report](https://github.com/vsgopinath/test-assignment/runs/33735014700) 
 
     
