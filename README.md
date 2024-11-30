@@ -16,4 +16,19 @@ PS. We don't expect you to spend weeks (and sleepless nights) on doing it. Lets 
 
 PSPS. Please use mobile native tools. (Tests written on Java are accepted too)
 
+# Testing
 
+# Actions involved in fixing the code
+
+ * Fixed old detekt configuration with updated detekt plugin & detekt.yml
+ * Fixed the old code used with Kotlin Android Extension (Deprecated)
+ * Updated depracated names in build.gradle both in Project & App module
+ * Used Java 17 & Gradle 8 for building & running the tests
+
+# Overview
+
+ * UI or Instrumentation tests are written using [Kaspresso](https://github.com/KasperskyLab/Kaspresso) library
+ * Configured detekt reports in CI/CD
+ * Configured UI Tests report in CI/CD
+
+    
