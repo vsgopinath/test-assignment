@@ -50,5 +50,5 @@ jobs:
       with:
         artifact: test-results          
         name: UI Tests                  
-        path: 'app/build/outputs/androidTest-results/*/*.xml'
+        path: 'app/build/outputs/androidTest-results/connected/debug/*.xml'
         reporter: java-junit
