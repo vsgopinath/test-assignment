@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  Build-And-Test:
 
     runs-on: ubuntu-latest
 
@@ -29,9 +29,13 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
 
+    - name: Run lint
+      run: ./gradlew lint
+
+    - name: Run detekt
+      run: ./gradlew detekt
+      
     - name: Run connected tests
       uses: ReactiveCircus/android-emulator-runner@v2
       with:
@@ -39,3 +43,12 @@ jobs:
         target: google_apis
         arch: x86_64
         script: ./gradlew connectedCheck
+
+    - name: Report  
+      uses: dorny/test-reporter@v1
+      if: always()
+      with:
+        artifact: test-results          
+        name: UI Tests                  
+        path: 'app/build/outputs/androidTest-results/*/*.xml'
+        reporter: java-junit
