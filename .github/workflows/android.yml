@@ -44,7 +44,7 @@ jobs:
       run: ./gradlew detekt
     
     - name: Upload SARIF to GitHub using the upload-sarif action
-      uses: github/codeql-action/upload-sarif@v2
+      uses: github/codeql-action/upload-sarif@v3
       if: success() || failure()
       with:
         sarif_file: app/build/reports/detekt/detekt.sarif
@@ -60,13 +60,12 @@ jobs:
     - name: Check reports
       run: |
         REPORT_PATH=$(find app/build/outputs/androidTest-results/ -type f -name "*.xml")
-        echo "REPORT_PATH=$REPORT_PATH" >> $GITHUB_ENV
-        echo $REPORT_PATH   
+        echo "REPORT_PATH=$REPORT_PATH" >> $GITHUB_ENV  
     
     - name: Test Report
       uses: dorny/test-reporter@v1
       if: success() || failure()
       with:
-        name: JEST Tests            # Name of the check run which will be created
+        name: Android UI Tests            # Name of the check run which will be created
         path: ${{env.REPORT_PATH}}    # Path to test results
         reporter: java-junit

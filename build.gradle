@@ -41,8 +41,8 @@ apply plugin: "io.gitlab.arturbosch.detekt"
 
 detekt {
     version = "1.23.7"
-    parallel = true // Run analysis in parallel (recommended for larger projects)
-    buildUponDefaultConfig = true // Use default config as a base and apply custom rules
+    parallel = true
+    buildUponDefaultConfig = true
     configurations {
         file("config/detekt/detekt.yml")
     }
